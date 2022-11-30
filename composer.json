@@ -1,5 +1,5 @@
 {
   "autoload": {
-    "psr-4": {"csv-to-nested-json-converter\\": "src/"}
+    "psr-4": {"CsvConverter\\": "src/"}
   }
 }

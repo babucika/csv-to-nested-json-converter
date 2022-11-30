@@ -1,6 +1,6 @@
 <?php
 
-namespace DataChecker\Helper;
+namespace CsvConverter\Helper;
 
 class CSVProcessor
 {
