@@ -33,8 +33,10 @@ class CsvToJsonConverter
         {
             $csvDataNested[$index] = [];
             foreach ($csvDataFlatRow as $combinedKey => $value) {
-                $separateKeys = explode("__", $combinedKey);
-                $this->convertCombinedKeyToNested($csvDataNested[$index], $separateKeys, 0, $value);
+                if(!empty($value)) {
+                    $separateKeys = explode("__", $combinedKey);
+                    $this->convertCombinedKeyToNested($csvDataNested[$index], $separateKeys, 0, $value);
+                }
             }
         }
         $json = json_encode($csvDataNested, JSON_NUMERIC_CHECK|JSON_PRETTY_PRINT);
