@@ -34,6 +34,12 @@ class CsvToJsonConverter
             $csvDataNested[$index] = [];
             foreach ($csvDataFlatRow as $combinedKey => $value) {
                 if(!empty($value)) {
+                    if($value === "true" || $value === "TRUE"){
+                        $value = true;
+                    }
+                    if($value === "false" || $value === "FALSE"){
+                        $value = false;
+                    }
                     $separateKeys = explode("__", $combinedKey);
                     $this->convertCombinedKeyToNested($csvDataNested[$index], $separateKeys, 0, $value);
                 }
