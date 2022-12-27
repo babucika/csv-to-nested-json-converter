@@ -1,5 +1,8 @@
 {
   "autoload": {
     "psr-4": {"CsvConverter\\": "src/"}
+  },
+  "require": {
+    "ext-json": "*"
   }
 }
