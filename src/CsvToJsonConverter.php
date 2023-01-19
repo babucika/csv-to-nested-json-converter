@@ -24,10 +24,11 @@ class CsvToJsonConverter
      * @param string $jsonPath
      * @return void
      */
-    public function convertCsvToJson(string $csvPath, string $jsonPath):void
+    public function convertCsvToJson(string $csvPath, string $jsonPath, string $separator = null):void
     {
         $csvDataFlat = $this->CSVProcessor->getAssocArrayFromCSV($csvPath);
         $csvDataNested = [];
+        $separator = $separator ?: "__";
 
         foreach ($csvDataFlat as $index => $csvDataFlatRow)
         {
@@ -40,7 +41,7 @@ class CsvToJsonConverter
                     if($value === "false" || $value === "FALSE"){
                         $value = false;
                     }
-                    $separateKeys = explode("__", $combinedKey);
+                    $separateKeys = explode($separator, $combinedKey);
                     $this->convertCombinedKeyToNested($csvDataNested[$index], $separateKeys, 0, $value);
                 }
             }
